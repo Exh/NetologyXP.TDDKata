@@ -5,7 +5,8 @@ class Calculator(object):
 
     def add(self, numbers):
         if ',' in numbers:
-            return self.__parseInt(numbers[0]) + self.__parseInt(numbers[2])
+            split_numbers = numbers.split(",")
+            return self.__parseInt(split_numbers[0]) + self.__parseInt(split_numbers[1])
         elif numbers == "":
             return 0
         return self.__parseInt(numbers)
