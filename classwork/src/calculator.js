@@ -2,8 +2,20 @@
 
 class Calculator
 {
+    constructor() {
+        this._defaultValue = 0;
+    }
+
     add (numbers) {
-        return 0;
+        if (this.isEmpty(numbers)) {
+            return this._defaultVa
+            lue;
+        }
+        return 1;
+    }
+
+    isEmpty(numbers) {
+        return !numbers;
     }
 }
 
