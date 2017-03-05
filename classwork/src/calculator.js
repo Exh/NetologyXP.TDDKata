@@ -7,14 +7,17 @@ class Calculator
     }
 
     add (numbers) {
-        if (this.isEmpty(numbers)) {
-            return this._defaultVa
-            lue;
+        if (this._isEmpty(numbers)) {
+            return this._defaultValue;
         }
-        return 1;
+        return this._parseSingleNumber(numbers);
     }
 
-    isEmpty(numbers) {
+    _parseSingleNumber(numbers) {
+        return parseInt(numbers);
+    }
+
+    _isEmpty(numbers) {
         return !numbers;
     }
 }

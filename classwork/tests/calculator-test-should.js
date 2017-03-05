@@ -25,4 +25,12 @@ suite("string calculator should", function() {
 
         assert.equal(sum, 1);
     });
+
+    test("return single number if input is single number", function () {
+        var calculator = createCalculator();
+
+        var sum = calculator.add("2");
+
+        assert.equal(sum, 2);
+    });
 });
