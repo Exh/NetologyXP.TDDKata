@@ -49,4 +49,10 @@ suite("string calculator should", function() {
 
         assert.equal(sum, 1+2+3+4+5);
     });
+
+    test("return sum of two newline separated numbers", function () {
+        var calculator = createCalculator();
+        var sum = calculator.add("1\n2");
+        assert.equal(sum, 1 + 2);
+    });
 });

@@ -20,13 +20,14 @@ class Calculator
     }
 
     _parseMultipleNumbers(numbers) {
-        return numbers.split(this._defaultSeparator).reduce((a,b) => {
+        return numbers.split(/[\n,]/).reduce((a,b) => {
             return this._parseSingleNumber(a) + this._parseSingleNumber(b);
         });
     }
 
     _isSingleNumber(numbers) {
-        return numbers.indexOf(this._defaultSeparator) === -1;
+        return numbers.indexOf(this._defaultSeparator) === -1 &&
+                numbers.indexOf('\n') === -1;
     }
 
     _parseSingleNumber(numbers) {
