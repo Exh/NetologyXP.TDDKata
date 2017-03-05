@@ -18,5 +18,12 @@ class TestCalculate(unittest.TestCase):
 
         self.assertEqual(res, 17)
 
+    def test_if_input_two_comma_separate_single_numbers_calculator_return_their_sum(self):
+        calculator = Calculator()
+
+        res = calculator.add("1,4")
+
+        self.assertEqual(res, 5)
+
 if __name__ == '__main__':
     unittest.main()
