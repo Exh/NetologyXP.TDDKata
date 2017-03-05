@@ -4,12 +4,13 @@ class Calculator(object):
         pass
 
     def add(self, numbers):
-        if ',' in numbers:
-            split_numbers = numbers.split(",")
-            return self.__parseInt(split_numbers[0]) + self.__parseInt(split_numbers[1])
-        elif numbers == "":
+        if numbers == "":
             return 0
-        return self.__parseInt(numbers)
+        res = 0
+        split_numbers = numbers.split(",")
+        for i in split_numbers:
+            res += self.__parseInt(i)
+        return res
 
     def __parseInt(self, numbers):
         return int(numbers)
