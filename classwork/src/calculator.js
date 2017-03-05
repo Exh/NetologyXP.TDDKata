@@ -10,7 +10,15 @@ class Calculator
         if (this._isEmpty(numbers)) {
             return this._defaultValue;
         }
-        return this._parseSingleNumber(numbers);
+
+        if(this._isSingleNumber(numbers)) {
+            return this._parseSingleNumber(numbers);
+        }
+        return this._parseSingleNumber(numbers[0]) + this._parseSingleNumber(numbers[2]);
+    }
+
+    _isSingleNumber(numbers) {
+        return numbers.indexOf(",") === -1;
     }
 
     _parseSingleNumber(numbers) {

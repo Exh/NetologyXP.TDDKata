@@ -33,4 +33,12 @@ suite("string calculator should", function() {
 
         assert.equal(sum, 2);
     });
+    
+    test("return sum of two comma separated one-digit numbers", function () {
+        var calculator = createCalculator();
+
+        var sum = calculator.add("1,2");
+
+        assert.equal(sum, 1 + 2);
+    });
 });
