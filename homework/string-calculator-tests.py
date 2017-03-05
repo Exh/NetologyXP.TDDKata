@@ -18,5 +18,12 @@ class TestCalculate(unittest.TestCase):
 
         self.assertEqual(res, 1)
 
+    def test_if_input_single_number_calculator_return_number(self):
+        calculator = Calculator()
+
+        res = calculator.add("17")
+
+        self.assertEqual(res, 17)
+
 if __name__ == '__main__':
     unittest.main()
