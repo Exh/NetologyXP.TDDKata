@@ -78,5 +78,12 @@ class TestCalculate(unittest.TestCase):
 
         self.assertEqual(negatives, True)
 
+    def test_if_input_contains_number_more_1000_it_is_skipped(self):
+        calculator = Calculator()
+
+        res = calculator.add("//;\n123;1004")
+
+        self.assertEqual(res, 123)
+
 if __name__ == '__main__':
     unittest.main()

@@ -21,17 +21,19 @@ class Calculator(object):
         split_numbers = re.split(self.separators, numbers)
 
         for i in split_numbers:
-            n = self.__parse_int(i)
-            if n < 0:
-                raise NegativesNotAllowed
-            res += n
+            res += self.__parse_int(i)
         return res
 
     @classmethod
     def __parse_int(cls, numbers):
         if numbers == "":
             return 0
-        return int(numbers)
+        n = int(numbers)
+        if n < 0:
+            raise NegativesNotAllowed
+        elif n > 1000:
+            return 0
+        return n
 
 
 
