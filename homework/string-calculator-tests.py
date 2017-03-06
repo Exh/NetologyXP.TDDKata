@@ -60,5 +60,12 @@ class TestCalculate(unittest.TestCase):
 
         self.assertEqual(res, 123+23+11+9+7)
 
+    def test_if_input_contain_custom_one_symbol_separator_in_beginning_string_it_used_for_separate_numbers(self):
+        calculator = Calculator()
+
+        res = calculator.add("//;\n1;2")
+
+        self.assertEqual(res, 1+2)
+
 if __name__ == '__main__':
     unittest.main()
