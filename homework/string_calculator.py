@@ -1,6 +1,10 @@
 import re
 
 
+class NegativesNotAllowed(Exception):
+    pass
+
+
 class Calculator(object):
     def __init__(self, p=None):
         self.separators = ',|\n'
@@ -17,7 +21,10 @@ class Calculator(object):
         split_numbers = re.split(self.separators, numbers)
 
         for i in split_numbers:
-            res += self.__parse_int(i)
+            n = self.__parse_int(i)
+            if n < 0:
+                raise NegativesNotAllowed
+            res += n
         return res
 
     @classmethod
@@ -25,3 +32,7 @@ class Calculator(object):
         if numbers == "":
             return 0
         return int(numbers)
+
+
+
+

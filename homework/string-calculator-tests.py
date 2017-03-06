@@ -1,7 +1,7 @@
 import unittest
 
 from string_calculator import Calculator
-
+from string_calculator import NegativesNotAllowed
 
 class TestCalculate(unittest.TestCase):
     def test_if_input_empty_calculator_return_zero(self):
@@ -66,6 +66,17 @@ class TestCalculate(unittest.TestCase):
         res = calculator.add("//;\n1;2")
 
         self.assertEqual(res, 1+2)
+
+    def test_if_input_contains_of_any_negative_number_exception_is_thrown(self):
+        calculator = Calculator()
+        negatives = False
+
+        try:
+            calculator.add("//;\n1;-2")
+        except NegativesNotAllowed:
+            negatives = True
+
+        self.assertEqual(negatives, True)
 
 if __name__ == '__main__':
     unittest.main()
