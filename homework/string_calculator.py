@@ -1,3 +1,4 @@
+import re
 
 class Calculator(object):
     def __init__(self):
@@ -7,10 +8,12 @@ class Calculator(object):
         if numbers == "":
             return 0
         res = 0
-        split_numbers = numbers.split(",")
+
+        split_numbers=re.split(r',|\n', numbers)
+
         for i in split_numbers:
-            res += self.__parseInt(i)
+            res += self.__parse_int(i)
         return res
 
-    def __parseInt(self, numbers):
+    def __parse_int(self, numbers):
         return int(numbers)
